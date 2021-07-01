@@ -17,32 +17,41 @@ namespace ExceptionHandlingExercise
             // and Exceptions will be thrown 
             // Below we will set this up 
             // ------------------------------------------------------------------------------
-
-
+            char[] arr = { '1', '2', '3', '4', '5', 'a', 'b', 'c', '7' };
+            List<int> mylist = new List<int>();
+            string str = "";
 
             //TODO START HERE:
-            
+
             // Make a foreach loop to iterate through your character array
-            
+            foreach (var item in arr)
+            {
                 // Now create a try catch
-                
-                
+                try
+                {
+                    str = str + item.ToString();
+                    var num = int.Parse(str);
+                    mylist.Add(num);
                     // Inside your try block
-                        // set your string variable to each array element in your char[] to .ToString()
-                        // Now, using int.Parse, parse your string variable and store in an int variable
-                        // Then add each int to your list
-                
+                    // set your string variable to each array element in your char[] to .ToString()
+                    // Now, using int.Parse, parse your string variable and store in an int variable
+                    // Then add each int to your list
+                }
                 // catch your Exception:
                 // in the scope of your catch you can use the following, 
-                
-                    //Console.WriteLine($"Unable to Parse '{character}'"); //character will be the name of each item in your collection
-                
-            
+                catch
+                {
+                    Console.WriteLine($"Unable to Parse '{item}'");
+                }
+                //character will be the name of each item in your collection
 
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //}
+
+
+                foreach (var num in mylist)
+                {
+                    Console.WriteLine(num);
+                }
+            }
         }
     }
 }
